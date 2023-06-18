@@ -15,12 +15,14 @@
       <div class="col-md-6">
         <!-- 最新評論 NewestComments-->
         <h3>最新評論</h3>
+        <NewestComments :comments="comments"/>
       </div>
     </div>
   </div>
 </template>
 <script>
 import NewestRestaurants from '../components/NewestRestaurants.vue';
+import NewestComments from '../components/NewestComments.vue';
 import NavTabs from './../components/NavTabs'
 
 const dummyData = {
@@ -533,7 +535,8 @@ const dummyData = {
 export default {
   components: {
     NavTabs,
-    NewestRestaurants
+    NewestRestaurants,
+    NewestComments
   },
   data() {
     return {

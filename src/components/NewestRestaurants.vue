@@ -15,14 +15,24 @@
             }}</small>
           </h4>
           <p>{{ restaurant.description }}</p>
-          {{ restaurant.createdAt }}
+          {{ restaurant.createdAt| fromNow }}
           <hr>
         </div>
     </div>
   </div>
 </template>
 <script>
+import moment from 'moment'
+
 export default {
+  filters: {
+    fromNow(datetime) {
+      if (!datetime) {
+        return '-'
+      }
+      return moment(datetime).fromNow()
+    }
+  },
   props: {
     restaurants: {
       type: Array,
